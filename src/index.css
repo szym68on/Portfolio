@@ -10,3 +10,7 @@
 .box-div:hover {
   background: hsl(270, 5%, 23%);
 }
+.active-link {
+  color: hsl(258, 100%, 87%);
+  position: relative;
+}

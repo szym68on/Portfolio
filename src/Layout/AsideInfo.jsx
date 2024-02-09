@@ -1,6 +1,6 @@
 function AsideInfo() {
   return (
-    <aside className="bg-dark-surface-container-low  w-[100%] md:w-[400px] px-3 py-2 rounded-lg">
+    <aside className="bg-dark-surface-container-low  w-[100%] md:w-[400px] px-3 py-2 rounded-lg max-h-[300px]">
       <h6 className="border-b-[1px] border-dark-outline py-2 border-opacity-30">
         About
       </h6>
