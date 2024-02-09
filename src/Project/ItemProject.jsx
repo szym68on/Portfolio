@@ -1,6 +1,6 @@
 function ItemProject({ description, codeUrl, imgPath, demoUrl }) {
   return (
-    <div className="bg-dark-surface-container-low w-[95%] rounded-lg flex flex-col justify-center items-center py-5 max-h-[400px]">
+    <div className="bg-dark-surface-container-low w-[95%] rounded-lg flex flex-col justify-center items-center py-5 max-h-[400px] transition duration-300 ease-in-out hover:bg-dark-surface-bright cursor-pointer">
       <div className="w-[80%]  rounded-lg">
         <img src={`${imgPath}`} alt="project" className="rounded-lg"></img>
       </div>
