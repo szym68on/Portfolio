@@ -1,4 +1,4 @@
-function MailInput({ handleChange, errorName }) {
+function MailInput({ handleChange, errorName, valueInpt }) {
   return (
     <input
       type="text"
@@ -8,6 +8,7 @@ function MailInput({ handleChange, errorName }) {
         errorName ? "border-red-500" : "border-dark-outline"
       }  bg-transparent  rounded-md focus:outline-none focus:border focus:border-dark-primary`}
       onChange={handleChange}
+      value={valueInpt}
     />
   );
 }

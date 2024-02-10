@@ -12,8 +12,11 @@ import MailInput from "./MailInput";
 import SubjectInput from "./SubjectInput";
 import TextAreaInput from "./TextAreaInput";
 import ButtonForm from "./ButtonForm";
-import { useState, useRef } from "react";
+
+import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import { CSSTransition } from "react-transition-group";
+
 const socialData = [
   {
     name: "facebook",
@@ -39,7 +42,21 @@ function ContactLayout() {
     message: "",
   });
   const [errors, setErrors] = useState({});
+  const [sentForm, setSentForm] = useState(false);
   const form = useRef();
+  const nodeRef = useRef(null);
+
+  useEffect(
+    function () {
+      if (sentForm === true) {
+        setTimeout(function () {
+          setSentForm((flag) => !flag);
+        }, 2000);
+      }
+    },
+    [sentForm]
+  );
+
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData({
@@ -47,6 +64,7 @@ function ContactLayout() {
       [name]: value,
     });
   }
+
   function handleSubmit(e) {
     e.preventDefault();
     setErrors({});
@@ -63,19 +81,21 @@ function ContactLayout() {
       validationErrors.message = "Message is required";
     }
     setErrors(validationErrors);
-
-    emailjs
-      .sendForm("service_kkh5ohb", "template_n5q2udq", form.current, {
-        publicKey: "X-Be5CFQ2YXlmVlPB",
-      })
-      .then(
-        () => {
-          console.log("SUCCESS!");
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-        }
-      );
+    const lengthErrors = Object.keys(validationErrors).length;
+    if (lengthErrors === 0) {
+      emailjs
+        .sendForm("service_kkh5ohb", "template_n5q2udq", form.current, {
+          publicKey: "X-Be5CFQ2YXlmVlPB",
+        })
+        .then(
+          () => {},
+          (error) => {
+            console.log("FAILED...", error.text);
+          }
+        );
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setSentForm((flag) => !flag);
+    }
   }
 
   return (
@@ -99,19 +119,50 @@ function ContactLayout() {
           ))}
         </SocialInfoWrapper>
       </div>
-      <FormWrapper>
-        <FormComponent handleSubmit={handleSubmit} formRef={form}>
-          <TitleForm />
-          <NameInput handleChange={handleChange} errorName={errors.name} />
-          <MailInput handleChange={handleChange} errorName={errors.email} />
-          <SubjectInput handleChange={handleChange} />
-          <TextAreaInput
-            handleChange={handleChange}
-            errorName={errors.message}
-          />
-          <ButtonForm />
-        </FormComponent>
-      </FormWrapper>
+      <CSSTransition
+        in={!sentForm}
+        classNames="fade"
+        timeout={300}
+        nodeRef={nodeRef}
+        unmountOnExit
+      >
+        <FormWrapper>
+          <FormComponent handleSubmit={handleSubmit} formRef={form}>
+            <TitleForm />
+            <NameInput
+              handleChange={handleChange}
+              errorName={errors.name}
+              valueInpt={formData.name}
+            />
+            <MailInput
+              handleChange={handleChange}
+              errorName={errors.email}
+              valueInpt={formData.email}
+            />
+            <SubjectInput
+              handleChange={handleChange}
+              valueInpt={formData.subject}
+            />
+            <TextAreaInput
+              handleChange={handleChange}
+              errorName={errors.message}
+              valueInpt={formData.message}
+            />
+            <ButtonForm />
+          </FormComponent>
+        </FormWrapper>
+      </CSSTransition>
+      <CSSTransition
+        in={sentForm}
+        classNames="fade"
+        timeout={300}
+        nodeRef={nodeRef}
+        unmountOnExit
+      >
+        <div>
+          <p className="text-green-500">Thank you for sending message !</p>
+        </div>
+      </CSSTransition>
     </section>
   );
 }

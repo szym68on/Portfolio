@@ -1,4 +1,4 @@
-function TextAreaInput({ handleChange, errorName }) {
+function TextAreaInput({ handleChange, errorName, valueInpt }) {
   return (
     <textarea
       className={`w-[98%] bg-transparent border ${
@@ -7,6 +7,7 @@ function TextAreaInput({ handleChange, errorName }) {
       placeholder="Message*"
       name="message"
       onChange={handleChange}
+      value={valueInpt}
     ></textarea>
   );
 }
