@@ -99,7 +99,7 @@ function ContactLayout() {
   }
 
   return (
-    <section className="w-[100%] mx-auto mt-5 grid grid-cols-1 md:grid-cols-2 gap-y-5">
+    <section className="w-[100%] mx-auto mt-5 grid grid-cols-1 md:grid-cols-2 gap-y-5 animate-fade-in">
       <div>
         <TitleResume title="Contact Info" />
 

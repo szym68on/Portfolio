@@ -5,7 +5,7 @@ function NavLinkInfo({ name, path }) {
       to={path}
       className={({ isActive }) => (isActive ? "active-link" : "custom-link")}
     >
-      <span className="hover:text-dark-primary py-2 px-3 rounded-lg transition duration-300 ease-in-out text-[0.8rem] md:text-[1rem]">
+      <span className="hover:text-light-primary dark:hover:text-dark-primary py-2 px-3 rounded-lg transition duration-300 ease-in-out text-[0.8rem] md:text-[1rem]">
         {name}
       </span>
     </NavLink>

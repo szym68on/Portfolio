@@ -17,7 +17,7 @@ function ProjectsLayout() {
     getData();
   }, []);
   return (
-    <section className="w-[100%] mx-auto mt-5 grid grid-cols-1 md:grid-cols-2 place-items-center gap-y-5">
+    <section className="w-[100%] mx-auto mt-5 grid grid-cols-1 md:grid-cols-2 place-items-center gap-y-5 animate-fade-in">
       {projects
         ? projects.map((project, index) => (
             <ItemProject

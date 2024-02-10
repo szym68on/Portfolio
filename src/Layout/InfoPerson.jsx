@@ -23,7 +23,7 @@ function InfoPerson() {
 	l18.584-13.381c0.448-0.322,0.55-0.947,0.228-1.396c-0.322-0.447-0.946-0.549-1.396-0.228L2,46.729V16.961l29.403,21.842
 	C31.581,38.935,31.79,39,32,39s0.419-0.065,0.597-0.197L62,16.961v29.768l-17.416-12.54c-0.448-0.322-1.074-0.221-1.396,0.228
 	c-0.322,0.448-0.221,1.073,0.228,1.396L62,49.192V52C62,53.104,61.104,54,60,54z"
-              className="fill-slate-50"
+              className="fill-dark-surface dark:fill-slate-50"
             />
           </svg>
           <p className="text-[0.8rem] md:text-[1rem] ml-2 ">
@@ -43,7 +43,7 @@ function InfoPerson() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="stroke-slate-50"
+              className="stroke-dark-surface dark:stroke-slate-50"
             />
           </svg>
           <p className="text-[0.8rem] md:text-[1rem]">501 798 959</p>

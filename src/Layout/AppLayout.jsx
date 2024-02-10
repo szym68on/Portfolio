@@ -10,12 +10,14 @@ import NavMain from "./NavMain";
 import NavLinkInfo from "./NavLinkInfo";
 import { Outlet } from "react-router-dom";
 import Wrapper from "./Wrapper";
+import { useState } from "react";
 function AppLayout() {
+  const [darkMode, setDarkMode] = useState(true);
   return (
     <>
       <Header>
         <TitlePage />
-        <IconComponent />
+        <IconComponent setDarkMode={setDarkMode} darkMode={darkMode} />
       </Header>
       <SectionInfo>
         <ImagePerson />

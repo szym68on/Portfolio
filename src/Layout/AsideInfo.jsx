@@ -1,10 +1,10 @@
 function AsideInfo() {
   return (
-    <aside className="bg-dark-surface-container-low  w-[100%] md:w-[400px] px-3 py-2 rounded-lg max-h-[300px]">
-      <h6 className="border-b-[1px] border-dark-outline py-2 border-opacity-30">
+    <aside className="bg-light-surface-container-low dark:bg-dark-surface-container-low  w-[100%] md:w-[400px] px-3 py-2 rounded-lg max-h-[300px]">
+      <h6 className="border-b-[1px] border-light-outline dark:border-dark-outline py-2 border-opacity-30">
         About
       </h6>
-      <p className="text-[0.9rem]  border-b-[1px] border-dark-outline py-4 border-opacity-30">
+      <p className="text-[0.9rem]  border-b-[1px] border-light-outline dark:border-dark-outline py-4 border-opacity-30">
         I am a 3rd-year computer science student. I approach any difficulties
         analytically, paying attention to the smallest of details.
       </p>
@@ -23,10 +23,10 @@ function AsideInfo() {
                 <polyline
                   fill="none"
                   points="12 2.5 4 21.5 12 19.4 20 21.5 12 2.5"
-                  stroke="hsl(280, 17%, 90%)"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
+                  className=" stroke-slate-500 dark:stroke-[hsl(280, 17%, 90%)]"
                 />
               </g>
             </g>
@@ -36,6 +36,7 @@ function AsideInfo() {
         <div className="flex gap-x-2 mt-2">
           <svg
             fill="hsl(280, 17%, 90%)"
+            className=" fill-slate-500 dark:fill-[hsl(280, 17%, 90%)]"
             width="20px"
             height="20px"
             viewBox="-4 0 32 32"
@@ -54,7 +55,7 @@ function AsideInfo() {
             viewBox="0 0 64 64"
             xmlns="http://www.w3.org/2000/svg"
             strokeWidth="3"
-            stroke="hsl(280, 17%, 90%)"
+            className=" stroke-slate-500 dark:stroke-[hsl(280, 17%, 90%)]"
             fill="none"
           >
             <path d="M39.93,55.72A24.86,24.86,0,1,1,56.86,32.15a37.24,37.24,0,0,1-.73,6" />

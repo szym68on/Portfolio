@@ -13,12 +13,12 @@ const dataTechnologies = [
   { imgTech: "/images/wind.png", nameTech: "Tailwind CSS" },
   { imgTech: "/images/c-.png", nameTech: "C++" },
   { imgTech: "/images/letter-c.png", nameTech: "C" },
-  { imgTech: "/images/git.png", nameTech: "GIT" },
+  { imgTech: "/images/git.png", nameTech: "Git" },
 ];
 
 function ResumeLayout() {
   return (
-    <section className="w-[100%] mx-auto mt-5 ml-1 ">
+    <section className="w-[100%] mx-auto mt-5 ml-1 animate-fade-in ">
       <TitleResume title="Education" />
       <WrapperResume>
         <EducationItem
