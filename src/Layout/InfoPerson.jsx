@@ -1,12 +1,29 @@
+import { useEffect, useState } from "react";
 function InfoPerson() {
+  const [text, setText] = useState("");
+  const [currIndex, setCurrIndex] = useState(0);
+  const speed = 50;
+  const description =
+    " For half a year, I have been devoting every free moment to consolidating knowledge and learning new technologies.";
+
+  useEffect(
+    function () {
+      if (currIndex < description.length) {
+        const timeout = setTimeout(function () {
+          setText((prevText) => prevText + description[currIndex]);
+          setCurrIndex((prevIndex) => prevIndex + 1);
+        }, speed);
+        return () => clearTimeout(timeout);
+      }
+    },
+    [currIndex, speed, description]
+  );
+
   return (
     <div className="md:mt-10 ml-3 md:ml-0">
       <h4 className="text-[0.9rem]">Frontend Developer</h4>
       <h2 className="text-title-small leading-10">Szymon Świercz</h2>
-      <p className="text-[0.8rem] md:w-[500px]">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-        beatae dolore voluptatibus cupiditate, odit voluptatem.
-      </p>
+      <p className="text-[0.8rem] md:w-[500px]">{text}</p>
       <div className="flex gap-x-10">
         <div className="box-div">
           <svg
